@@ -1562,6 +1562,7 @@ export interface ToolpadAppProps {
 }
 
 export default function ToolpadApp({ rootRef, basename, state }: ToolpadAppProps) {
+  // TODO??
   const { dom } = state;
 
   const extraComponents = componentsStore.useValue();
@@ -1584,11 +1585,14 @@ export default function ToolpadApp({ rootRef, basename, state }: ToolpadAppProps
   return (
     <BrowserRouter basename={basename}>
       <UseDataProviderContext.Provider value={useDataProvider}>
+        {/* 主题样式 */}
         <AppThemeProvider dom={dom}>
           <CssBaseline enableColorScheme />
           {SHOW_PREVIEW_HEADER ? <PreviewHeader basename={basename} /> : null}
           <AppRoot ref={rootRef}>
+            {/* 系统组件和用户组件 */}
             <ComponentsContextProvider value={components}>
+              {/* TODO?? */}
               <DomContextProvider value={dom}>
                 <ErrorBoundary FallbackComponent={AppError}>
                   <ResetNodeErrorsKeyProvider value={resetNodeErrorsKey}>

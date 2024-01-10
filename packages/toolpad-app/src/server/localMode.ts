@@ -1118,6 +1118,7 @@ class ToolpadProject {
       await this.initWatcher();
     } else {
       const buildInfo = await this.getBuildInfo();
+      // start 之前需要 build
       if (!buildInfo) {
         throw new Error(`No production build found. Please run "toolpad build" first.`);
       }

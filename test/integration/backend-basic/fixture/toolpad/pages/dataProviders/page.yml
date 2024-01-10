@@ -1,7 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mui/mui-toolpad/v0.1.39/docs/schemas/v1/definitions.json#properties/Page
+
 apiVersion: v1
 kind: page
 spec:
-  id: VnOzPpU
   title: page
   content:
     - component: DataGrid
@@ -14,6 +15,9 @@ spec:
             width: 135
         height: 242
         rowsSource: dataProvider
+        rowIdField: name
+        density: compact
+        loading: false
     - component: DataGrid
       name: dataGrid1
       props:
@@ -24,3 +28,5 @@ spec:
         height: 244
         rowsSource: dataProvider
   display: shell
+  alias:
+    - VnOzPpU

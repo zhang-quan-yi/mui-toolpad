@@ -438,7 +438,8 @@ export interface RunAppOptions {
   base?: string;
   toolpadDevMode?: boolean;
 }
-
+// start 命令，一般使用默认值。
+// base 相当于 public URL。
 export async function runApp({
   dev = false,
   dir = '.',
@@ -461,6 +462,7 @@ export async function runApp({
 
   const externalUrl = process.env.TOOLPAD_EXTERNAL_URL || `http://localhost:${port}`;
 
+  // 创建 express 服务
   const server = await startToolpadServer({
     dev,
     base,

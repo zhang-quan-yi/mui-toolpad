@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mui/mui-toolpad/v0.1.39/docs/schemas/v1/definitions.json#properties/Page
+
+apiVersion: v1
+kind: page
+spec:
+  title: RayTest
+  display: shell
+  content:
+    - component: Container
+      name: container
+      children:
+        - component: PageRow
+          name: pageRow1
+          props:
+            justifyContent: start
+          children:
+            - component: TextField
+              name: keywords
+              props:
+                fullWidth: true
+                isRequired: false
+                isInvalid: false
+                placeholder: Start here
+              layout:
+                columnSize: 1.6769953051643192
+            - component: Button
+              name: button
+              layout:
+                columnSize: 0.32300469483568084
+              props:
+                size: medium
+                onClick:
+                  $$jsExpressionAction: console.log('scope', keywords);

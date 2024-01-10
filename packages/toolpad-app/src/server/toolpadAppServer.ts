@@ -51,6 +51,8 @@ export interface ToolpadAppHandlerParams {
 export async function createProdHandler(project: ToolpadProject) {
   const handler = express.Router();
 
+  // 默认构建输出目录为 projectRoot/.generated/app
+  // TODO：这个目录什么时候生成的？源码对应的是哪个？
   handler.use(express.static(project.getAppOutputFolder(), { index: false }));
 
   // Allow static assets, block everything else
@@ -62,9 +64,12 @@ export async function createProdHandler(project: ToolpadProject) {
     basicAuthUnauthorized(res);
   });
 
+  // TODO: what is this?
   handler.use('/api/data', project.dataManager.createDataHandler());
 
   const runtimeRpcServer = createRpcServer(project);
+
+  // TODO: what is this?
   handler.use('/api/runtime-rpc', createRpcHandler(runtimeRpcServer));
 
   handler.use(

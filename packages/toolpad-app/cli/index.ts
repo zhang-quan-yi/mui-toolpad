@@ -21,6 +21,8 @@ async function runCommand(
   cmd: 'dev' | 'start',
   { dir, dev: toolpadDevMode, ...args }: Omit<RunOptions, 'cmd'>,
 ) {
+  // app 项目根目录，默认为当前目录。
+  // 目录结构参考 example 中的实例
   const projectDir = path.resolve(process.cwd(), dir);
 
   const app = await runApp({
