@@ -1376,7 +1376,9 @@ interface RenderedLowCodePageProps {
 }
 
 function RenderedLowCodePage({ page }: RenderedLowCodePageProps) {
+  // ??
   const dom = useDomContext();
+  // ??
   const { children = [], queries = [] } = appDom.getChildNodes(dom, page);
 
   usePageTitle(appDom.getPageTitle(page));
@@ -1391,6 +1393,7 @@ function RenderedLowCodePage({ page }: RenderedLowCodePageProps) {
 
   const canvasEvents = React.useContext(CanvasEventsContext);
 
+  // scope.values ??
   const onUpdate = useEventCallback(({ scope, scopeMeta }) => {
     if (canvasEvents) {
       canvasEvents.emit('pageStateUpdated', {
